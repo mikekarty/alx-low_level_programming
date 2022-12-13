@@ -9,22 +9,26 @@
 int main(void)
 {
 	int inner;
+	int mid;
 	int outer;
 
 	for (outer = 0; outer < 10; outer++)
 	{
-		for (inner = 0; inner < 10; inner++)
+		for (mid = 0; mid < 10; mid++)
 		{
-			if ((outer < inner) && (outer != inner))
+			for (inner = 0; inner < 10; inner++)
 			{
-				putchar(outer + '0');
-				putchar(inner + '0');
-				if ((outer == 8) && (inner == 9))
+				if ((outer < mid) && (mid < inner))
 				{
-					break;
+					putchar(outer + '0');
+					putchar(mid + '0');
+					putchar(inner + '0');
+					if (outer != 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
-				putchar(',');
-				putchar(' ');
 			}
 		}
 	}
